@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    background-color: mediumpurple;//darkseagreen
+}
+header{
+    //background-color: #30477e;
+    background-color: indigo;
+    padding: 10px;
+}
+h1, h2,p, a{
+    //color: white;
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    color: #303030;
+}
+h1, h3 {
+    color: white;
+    text-align: center;
+}
+form {
+    color: black;
+    font-weight: bold;
+    //color: #303030;
+    padding: 10px;
+    border: 1px solid grey;
+}
+.left{
+    background-color: #b592ff;//aliceblue;
+    float: left;
+    width: 60%;
+    padding: 30px 30px 30px 170px;
+}
+.right{
+    text-align: center;
+    float: left;
+    width: 20%;
+    padding: 10px;
+}
+.right p{
+    margin: 1px;
+}
+form{
+    margin: 10px;
+}
+input{
+    margin: 3px 0 3px 0;
+}
+footer{
+    background-color: rebeccapurple;//cadetblue;
+    padding: 80px;
+    clear: both;
+}
+footer p, footer a{
+    color: white;
+    font-weight: normal;
+}
+#canvas{
+    width: 800px;
+    height: 650px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+#downloadCoords, #exportStats{
+    padding: 1px 6px 1px 6px;
+    border: 1px solid #aaaaaa;
+    background-color: #f7f7f7;
+    font-weight: normal;
+    font-family: Arial, serif;
+    font-size: 13px;
+}
+#help{
+    margin: 50px;
+    border: 1px solid #fff;
+    padding: 20px;
+}
+
