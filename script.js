@@ -485,8 +485,8 @@ function addDivStats() {
             div.style.color = "white";
             div.className = "stats";
             div.innerText = "Т. №" + (i + 1) + ": x = " + d[i].x + ", y = " + d[i].y +
-                ",\n глобал. ( " + Math.round(Cx * 100.0)/100.0 + " ; " + Math.round(Cy * 100.0)/100.0 + " ) R = " + Math.round(R * 100.0)/100.0 +
-                ",\n локал.  ( " + d[i].coveredBy.x + " ; " + d[i].coveredBy.y + " ) R = " + smallR;
+                ",\n global ( " + Math.round(Cx * 100.0)/100.0 + " ; " + Math.round(Cy * 100.0)/100.0 + " ) R = " + Math.round(R * 100.0)/100.0 +
+                ",\n local  ( " + d[i].coveredBy.x + " ; " + d[i].coveredBy.y + " ) R = " + smallR;
             statsDiv.append(div);
         }
     }
@@ -505,11 +505,11 @@ function statsExport(){
         let text = "";
         for (let i = 0; i < d.length; i++)
             text += "Т. №" + (i + 1) + ": x = " + d[i].x + ", y = " + d[i].y +
-                "\n\t глобал ( " + Math.round(Cx * 100.0)/100.0 + " ; " + Math.round(Cy * 100.0)/100.0 + " ) R = " + Math.round(R * 100.0)/100.0 +
-                "\n\t локал  ( " + d[i].coveredBy.x + " ; " + d[i].coveredBy.y + " ) R = " + smallR + "\n\n";
+                "\n\t global ( " + Math.round(Cx * 100.0)/100.0 + " ; " + Math.round(Cy * 100.0)/100.0 + " ) R = " + Math.round(R * 100.0)/100.0 +
+                "\n\t local  ( " + d[i].coveredBy.x + " ; " + d[i].coveredBy.y + " ) R = " + smallR + "\n\n";
         let blob = new Blob([text], {type: 'text/plain'});
         expStats.download = filename;
-        expStats.innerHTML = "Записати статистику в файл";
+        expStats.innerHTML = "Write statistics in file";
         expStats.href = window.URL.createObjectURL(blob);
     }
 }
