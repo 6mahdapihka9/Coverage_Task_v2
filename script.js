@@ -234,7 +234,7 @@ function dataExport(){
     let blob = new Blob([text], {type:'text/plain'});
 
     aDownloadCoords.download = filename;
-    aDownloadCoords.innerHTML = "Зберегти файл з координатами";
+    aDownloadCoords.innerHTML = "Save coordinates in file";
     aDownloadCoords.href = window.URL.createObjectURL(blob);
 }
 function addImage(input, local_global) {
