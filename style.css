@@ -46,6 +46,10 @@ form{
 input{
     margin: 3px 0 3px 0;
 }
+button, input, input[type=file]{
+    border-radius: 5px;
+    padding: 5px;
+}
 footer{
     background-color: rebeccapurple;//cadetblue;
     padding: 80px;

@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="ru-RU" xmlns="http://www.w3.org/1999/html">
     <head>
-        <title>Задача на розміщення</title>
+        <title>Coverage task v2</title>
         <meta charset="UTF-8">
-        <meta name="author" content="Zul'Jin x Sacrifice x Baal">
+        <meta name="author" content="Kulesh Oleksandr Viktorovych feat Rusnak Mykolay Andriyovych">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Покриття заданої координатної площини колами</h1>
+            <h1>Coverage of area by the inputed dots</h1>
         </header>
         <main>
             <div class="left">
-                <canvas id="canvas" width="800" height="650">Ваш браузер не поддерживает рисование</canvas>
+                <canvas id="canvas" width="800" height="650">Your browser does not support HTML5 canvas</canvas>
                 <div id="stats">
 
                 </div>
@@ -22,49 +22,49 @@
             <div class="right">
                 <form>
 
-                    Зчитати координати з файлу
+                    Read coordinates from file
                     <input type="file" onchange="dataImport(this)">
                     <br>
-                    <a id="downloadCoords" hidden>Зберегти файл з координатами</a>
+                    <a id="downloadCoords" hidden>Save coordinates in file</a>
                     <br>
-                    <button id="inputByYourself" style="background-color: lightblue;">Нанести координати вручну</button>
+                    <button id="inputByYourself" style="background-color: lightblue;">Put dots on map by yourself</button>
                     <div id="pX" style='text-align: left'></div>
                     <div id="pY" style='text-align: left'></div>
                     <div id="zoom" style='text-align: left'></div>
 
                     <hr>
-                    Додати зображення
+                    Add image
                     <br>
                     <label>
                         <input type="radio" name="lgURL" value="lURL" onchange="able_disableFormsAddImage(); return false;" checked>
-                    </label> З комп'ютера
+                    </label> Upload
                     <input class="lgURL" type="file" onchange="addImage(this, true); return false;">
                     <br>
                     <label>
                         <input type="radio" name="lgURL" value="gURL" onchange="able_disableFormsAddImage(); return false;" >
-                    </label> URL адреса                                                                                                                                                                                                                                                                         </адреса>
+                    </label> URL                                                                                                                                                                                                                                                                         </адреса>
                     <label for="UrlSrc"></label>
-                    <input id="UrlSrc" class="lgURL" type="text" name="imageUrl" placeholder="Введіть посилання" onchange="addImage(this, false); return false;" disabled>
+                    <input id="UrlSrc" class="lgURL" type="text" name="imageUrl" placeholder="Enter URL of image" onchange="addImage(this, false); return false;" disabled>
                     <hr>
-                    <button id="deleteImage" onclick="addImage(); return false;" disabled>Видалити зображення</button>
+                    <button id="deleteImage" onclick="addImage(); return false;" disabled>Delete image</button>
                     <br>
-                    <button id="undoButton" onclick="undo();return false;" disabled>Відмінити</button>
+                    <button id="undoButton" onclick="undo();return false;" disabled>Undo</button>
                     <br>
-                    <button id="clearAllButton" onclick="clearAll();return false;" style="background-color:#ff5555">Очистити все</button>
+                    <button id="clearAllButton" onclick="clearAll();return false;" style="background-color:#ff5555">Clear all</button>
                     <hr>
 
                     <label>
                         <input type="checkbox" name="builtOne" value="oneC" checked disabled>
-                    </label> Глобальне коло
+                    </label> Global circle
                     <br>
                     <label>
                         <input type="checkbox" name="builtMany" value="manyC" onchange="able_disableFormsMany()" checked>
-                    </label> Багато кіл з заданим радіусом
+                    </label> Many circles with fixed radius
                     <br>
                     <label for="radius"></label><input id="radius" class="many" type="text" value="100" name="radius" placeholder="Введіть радіус">
                     <hr>
 
-                    <button id="builtButton" onclick="built();return false;" style="background-color:springgreen;">Побудувати</button>
+                    <button id="builtButton" onclick="built();return false;" style="background-color:springgreen;">Build</button>
                     <hr>
 
                     <button id="loupePlus" onclick="zoom(true);return false;"><img src="loupePlus.png" alt="Loupe plus" width="32" height="32"></button>
@@ -72,10 +72,10 @@
                     <button id="moveButton" style="background-color: white;"><img src="move.png" alt="MoveImg" width="32" height="32"></button>
                     <hr>
                     <div id="stat" hidden>
-                        <input id="addStats" type="button" name="addStats" value="Вивести статистику" onclick="addDivStats()">
-                        <input id="hideStats" type="button" name="removeStats" value="Приховати статисику" onclick="removeDivStats()">
+                        <input id="addStats" type="button" name="addStats" value="Show stats" onclick="addDivStats()">
+                        <input id="hideStats" type="button" name="removeStats" value="Hide stats" onclick="removeDivStats()">
                         <br>
-                        <a id="exportStats">Записати статистику в файл</a>
+                        <a id="exportStats">Save statistics in file</a>
                     </div>
                 </form>
 
@@ -83,7 +83,7 @@
             </div>
         </main>
         <footer>
-            <button id="showHelp" onclick="showHideHelp(); return false;">Показати/сховати допоміжні пояснення</button>
+            <button id="showHelp" onclick="showHideHelp(); return false;">Show/hide details</button>
             <div id="help" hidden>
                 <h3>Додання точок на полотно:</h3>
                 <p>
@@ -126,9 +126,6 @@
                 <p>
                     Тільки після побудови кіл з'являеться можливість вивести статистики на екран, приховати її або зберегти її в файл.
                 </p>
-                <p>
-
-                </p>
             </div>
             <br><hr><br>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&copy;Kulesh Oleksandr</a>
@@ -136,12 +133,11 @@
                 <div>
                     <p>Contact info:</p>
                     <p>Tel: +38(050)152-43-65</p>
-                    <p>Address: м. Чернівці вул. Небесної Сотні 4б</p>
                     <p>email: kulesh.oleksandr@chnu.edu.ua</p>
                     <p>Telegram: @zul_jin</p>
                     <p>Supervisor:</p>
-                    <p>к. ф.-м. н., доцент</p>
-                    <p>Руснак Миколай Андрійович</p>
+                    <p>Candidate of Physical and Mathematical Sciences, Associate Professor</p>
+                    <p>Rusnak Mykolay Andriyovych</p>
                 </div>
             </address>
         </footer>
